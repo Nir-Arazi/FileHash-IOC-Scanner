@@ -20,4 +20,4 @@ foreach ($d in Get-ChildItem -Path $Path_to_scan -Recurse -Force -File -ErrorAct
     }
 }
 
-echo "scanning complete results will be saved at hash_scan_results.txt"
+echo "Scanning complete results will be saved at hash_scan_results.txt"
