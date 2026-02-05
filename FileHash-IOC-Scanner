@@ -1,0 +1,23 @@
+New-Item -ItemType File -Path "$PSScriptRoot\hash_scan_results.txt" -Force *>$null
+
+$HashFile = Resolve-Path (Read-Host "Path to hashes file")
+$Path_to_scan = Resolve-Path (Read-Host "please insert the path you would like to scan")
+
+$Hash_compare = Get-Content $HashFile
+
+echo ""
+echo "Example C:\Users"
+echo "scanning this may take a while :)"
+echo ""
+
+
+foreach ($d in Get-ChildItem -Path $Path_to_scan -Recurse -Force -File -ErrorAction SilentlyContinue) {
+
+    $File_hash = Get-FileHash -Algorithm MD5 -LiteralPath $d.FullName -ErrorAction SilentlyContinue
+
+    if ($Hash_compare -contains $File_hash.Hash) {
+        echo $File_hash.Path >> "$PSScriptRoot\hash_scan_results.txt"
+    }
+}
+
+echo "scanning complete results will be saved at hash_scan_results.txt"
