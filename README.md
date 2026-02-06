@@ -1,5 +1,19 @@
-During DFIR investigations, validating whether known tools or malware binaries exist on a system can be time consuming, especially when dealing with large file systems or multiple potential locations.
+🔍 Hash-Based IOC Scanner (DFIR Utility)
 
-This video demonstrates a hash based IOC sweep tool I built to quickly scan a system against a predefined hash database and return confirmed matches with full file paths.
+During DFIR investigations, validating whether known tools or malware binaries exist on a system can be time-consuming—especially across large file systems or multiple potential locations.
 
-The goal is fast, reliable triage of known indicators, allowing analysts to quickly confirm presence, reduce manual searching, and focus investigative time on analysis and response rather than file discovery.
+This tool performs a hash-based IOC sweep, scanning a target system against a predefined hash database and returning confirmed matches with full file paths.
+
+⚡ Why it exists
+
+The goal is fast, reliable triage:
+
+Quickly confirm the presence of known indicators
+
+Eliminate manual file hunting
+
+Reduce investigation time
+
+Let analysts focus on analysis, containment, and response instead of file discovery
+
+Designed for real-world DFIR workflows, where speed and accuracy matter.
