@@ -15,7 +15,7 @@ foreach ($d in Get-ChildItem -Path $Path_to_scan -Recurse -Force -File -ErrorAct
 
     $File_hash = Get-FileHash  -Algorithm $hash -LiteralPath $d.FullName -ErrorAction SilentlyContinue
 
-    if ($Hash_compare -contains $File_hash.Hash) {
+    if ($File_hash -and $Hash_compare -contains $File_hash.Hash) {
         echo $File_hash.Path >> "$PSScriptRoot\hash_scan_results.txt"
     }
 }
